@@ -1,0 +1,62 @@
+<!DOCTYPE html >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+        <title th:text="${titulo}"></title>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+    <h1 th:text="${titulo}"></h1>
+    <form th:action="@{/form}" th:object="${simulador}" method="post">
+      <div>
+          <label> DNI </label>
+          <input type="number" th:field="*{dni}" placeholder="number" />
+
+      </div>
+    <div>
+        <label> DNI </label>
+        <input type="number" th:field="*{dni}" placeholder="number" />
+
+    </div>
+    <div>
+        <label> DNI </label>
+        <input type="number" th:field="*{dni}" placeholder="integer" />
+
+    </div>
+    <div>
+        <label> Tipo Tarjeta </label>
+        <select th:field="*{ETipoTarjeta}">
+         <option th:each="tipotarjeta : ${tipotarjeta}"
+                 th:value="${cardType.id}"
+                 th:text="${cardType.cardType}"/>
+        </select>
+    </div>
+    <div>
+        <label> Tarjeta </label>
+        <input type="text" th:field="*{cardNumber}" placeholder="string" />
+
+    </div>
+    <div>
+        <label> Cuotas a financiar </label>
+        <input type="number" th:field="*{parts}" placeholder="integer" />
+
+    </div>
+    <div>
+        <label> Tasa de Interes Anual </label>
+        <input type="number" th:field="*{rate}" placeholder="double" />
+
+    </div>
+    <div>
+        <label> Fecha de Compra </label>
+        <input type="text" th:field="*{buydate}" placeholder="yyyy-MM-dd" />
+
+    </div>
+        <label> Dia de Pago </label>
+        <input type="number" th:field="*{paydate}" placeholder="integer" />
+
+    </div>
+    <input type="submit" value="QUIERO SIMULAR"/>
+
+  </form>
+
+</body>
+</html>
